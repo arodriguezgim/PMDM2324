@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pregunta_edad">¿Qué edad tienes?</string>
+    <string name="introduce_tu_edad">Introduce tu edad</string>
+    <string name="calcular">Calcular</string>
+    <string name="debes_numero">Debes introducir un número</string>
+    <string name="resultado">Si fueras perro, tu edad sería de %d años</string>
+</resources>
