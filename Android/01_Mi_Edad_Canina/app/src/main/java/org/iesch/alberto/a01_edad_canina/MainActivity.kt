@@ -7,16 +7,23 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import org.iesch.alberto.a01_edad_canina.databinding.ActivityMainBinding
 
+
+//3 - Añadimos Data Binding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
 
         // 1 - Tomamos el control sobre las Vistas que vamos a necesitar en la Activity
-        val resulText = findViewById<TextView>(R.id.result_text)
-        val calculateButton = findViewById<Button>(R.id.calculate_button)
-        val ageEdit = findViewById<EditText>(R.id.age_edit)
+        //val resulText = findViewById<TextView>(R.id.result_text)
+        //val calculateButton = findViewById<Button>(R.id.calculate_button)
+        //val ageEdit = findViewById<EditText>(R.id.age_edit)
+        // Creamos un nuevo objeto binding. Esto enlazará con el Layout que se formó y lo va a inflar.
+        // INFLAR: Formar un layout
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // En Android tenemos diferentes tipos de Logs
         //Log.i("MainActivity","Activity creada info")
@@ -26,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         //Log.e("MainActivity","Activity creada error")
 
         // 2 - Los botones tienen la propiedad onClickListener al pulsarlos
-        calculateButton.setOnClickListener {
-            val ageString = ageEdit.text.toString()
+        binding.calculateButton.setOnClickListener {
+            val ageString = binding.ageEdit.text.toString()
 
             if (ageString.isEmpty()){
                 //Mostramos un mensaje de tipo Toast para avisar al usuario de que introduzca un número
@@ -35,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val ageInt = ageString.toInt()
                 val dogAge = ageInt * 7
-                resulText.text = getString(R.string.resultado, dogAge)
+                binding.resultText.text = getString(R.string.resultado, dogAge)
             }
 
         }

@@ -1,55 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/dog_meme"
-        android:adjustViewBounds="true"
-        />
+    <data>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pregunta_edad"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:padding="16dp"
-        />
-    <EditText
-        android:id="@+id/age_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/introduce_tu_edad"
-        android:layout_marginHorizontal="16dp"
-        android:inputType="number"
-        />
+    </data>
 
-    <TextView
-        android:id="@+id/result_text"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:padding="16dp"
-        tools:text="Si fueras un perro tu tendrías 47 años."
-        android:gravity="center"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/calculate_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/calcular"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:textSize="18sp"
-        />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dog_meme"
+            android:adjustViewBounds="true" />
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pregunta_edad"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:padding="16dp" />
+
+        <EditText
+            android:id="@+id/age_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/introduce_tu_edad"
+            android:layout_marginHorizontal="16dp"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:padding="16dp"
+            tools:text="Si fueras un perro tu tendrías 47 años."
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/calculate_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calcular"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</layout>
