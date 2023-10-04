@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.graphics.drawable.toBitmap
 import org.iesch.alberto.a02_registro_de_superheroes.databinding.ActivityMainBinding
 import org.iesch.alberto.a02_registro_de_superheroes.model.Hero
@@ -18,6 +19,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var heroImage: ImageView
     // lateinit sirve para prometer a kotlin que cuando esta variable se establece ya estará declarada.
     // Esta variable no puede ser nula
+
+    // 30 a
+    private var heroBitmap: Bitmap? = null
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()){
+        // Esta funcion nos devuelve un bitmap y seteamos heroBitmap al bitmap que nos devuelve
+        bitmap ->
+            heroBitmap = bitmap
+            //Pintamos la imagen en miniatura
+            heroImage.setImageBitmap(heroBitmap!!)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 1 - Aplicamos dataBinding
@@ -44,9 +55,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun abrirCamara() {
-        // abrimos el INTENT IMPLICITO yq ue android es quien elige qué aplicacion abre este intent
+        /* abrimos el INTENT IMPLICITO yq ue android es quien elige qué aplicacion abre este intent
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(cameraIntent, 1000)
+        startActivityForResult(cameraIntent, 1000)*/
+        //30 b
+        getContent.launch(null)
     }
 
 
@@ -73,6 +86,7 @@ class MainActivity : AppCompatActivity() {
 
 
     //26 - onActivityResult es para recibir los datos de la camara
+    /*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if ( resultCode == Activity.RESULT_OK && requestCode == 1000){
@@ -83,7 +97,7 @@ class MainActivity : AppCompatActivity() {
             heroImage.setImageBitmap(heroBitmap)
         }
 
-    }
+    }*/
 }
 
 
