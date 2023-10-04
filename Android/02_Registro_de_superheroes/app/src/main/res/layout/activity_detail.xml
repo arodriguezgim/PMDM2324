@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <!-- 22- Variables en dataBinding-->
+        <variable
+            name="superHero"
+            type="org.iesch.alberto.a02_registro_de_superheroes.model.Hero" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +47,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="Genio, millonario y filántropo"
+            android:text="@{superHero.bio}"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -66,7 +69,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Superman"
+            android:text="@{superHero.name}"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +96,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="Clark Kent"
+            android:text="@{superHero.alterEgo}"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

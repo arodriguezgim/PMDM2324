@@ -36,10 +36,13 @@ class DetailActivity : AppCompatActivity() {
         val superHero = extras.getParcelable<Hero>(HERO_KEY)!!
         // 12 - Mostramos los valores por pantalla
         //21
+        /*
         binding.heroName.text = superHero.name
         binding.alterEgoText.text = superHero.alterEgo
         binding.bioText.text = superHero.bio
         binding.ratingBar.rating = superHero.power
+         */
+        binding.superHero = superHero
 
     }
 }
