@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    // 16 - Añadimos la propiedad parcelable
+    id("kotlin-parcelize")
 }
 
 android {

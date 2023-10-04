@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import org.iesch.alberto.a02_registro_de_superheroes.databinding.ActivityMainBinding
+import org.iesch.alberto.a02_registro_de_superheroes.model.Hero
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,20 +20,27 @@ class MainActivity : AppCompatActivity() {
             val alterEgo = binding.alterEgoEdit.text.toString()
             val bio = binding.bioEdit.text.toString()
             val power = binding.powerBar.rating
-            abrirDetailActivity(superHeroName, alterEgo, bio, power)
+            // 14 - ME creo un herop con los valores que he introducido
+            val heroe = Hero(superHeroName, alterEgo, bio, power)
+            abrirDetailActivity(heroe)
         }
     }
     // 3- esta función generará un Intent y nos llevará a detalle
     // 7
-    private fun abrirDetailActivity(superHeroName: String, alterEgo: String, bio:String, power: Float) {
+    // 15 - Modificamos el metodo para que reciba solo un Hero
+    private fun abrirDetailActivity(heroe:Hero) {
         // 4 - El Intent debe tener la información de desde dónde se envía y hacia dónde quiero ir
         val intent = Intent(this, DetailActivity::class.java)
         // 8 - Agregamos los valores al intent
+        /*
         intent.putExtra(DetailActivity.SUPERHERO_NAME_KEY, superHeroName)
         intent.putExtra(DetailActivity.ALTER_EGO_KEY, alterEgo)
         intent.putExtra(DetailActivity.BIO_KEY, bio)
         intent.putExtra(DetailActivity.POWER_KEY, power)
         Log.d("MainActivity", superHeroName)
+         */
+        //18 - Pasamos solamente el superhero
+        intent.putExtra(DetailActivity.HERO_KEY, heroe)
         // 5 - Para utilizar el intent hemos de llamar a startActivity
         startActivity(intent)
     }
