@@ -3,15 +3,21 @@ package org.iesch.alberto.a02_registro_de_superheroes
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.FileProvider
 import androidx.core.graphics.drawable.toBitmap
 import org.iesch.alberto.a02_registro_de_superheroes.databinding.ActivityMainBinding
 import org.iesch.alberto.a02_registro_de_superheroes.model.Hero
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     // 30 a
     private var heroBitmap: Bitmap? = null
+    /*
     private val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()){
         // Esta funcion nos devuelve un bitmap y seteamos heroBitmap al bitmap que nos devuelve
         bitmap ->
@@ -29,6 +36,19 @@ class MainActivity : AppCompatActivity() {
             //Pintamos la imagen en miniatura
             heroImage.setImageBitmap(heroBitmap!!)
     }
+    */
+    private var pictureFullPath = ""
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()){
+        // Ahora nos devuelve un booleano. Si la toma de la foto fue exitosa devolvemos un success
+        success ->
+        if ( success && pictureFullPath.isNotEmpty()){
+            heroBitmap = BitmapFactory.decodeFile(pictureFullPath)
+            // Pintamos la imagen en miniatura
+            heroImage.setImageBitmap(heroBitmap!!)
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 1 - Aplicamos dataBinding
@@ -58,8 +78,38 @@ class MainActivity : AppCompatActivity() {
         /* abrimos el INTENT IMPLICITO yq ue android es quien elige qué aplicacion abre este intent
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(cameraIntent, 1000)*/
-        //30 b
-        getContent.launch(null)
+        // Creamos un File y de ese file recuperamos el uri. Creamos la funcion
+        val imageFile = createImageFile()
+        // Dependiendo de la version de ANDROID que tengamos, esa uri la podemos obtener de una manera u otra
+        val uri = if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            // En las nuevas versiones de Android se necesita tener permisos para hacer uso de otras aplicaciones
+            // Para dar ese permiso necesitamos el fileProvider
+            // Hemos de ir al manifest desde aqui
+            FileProvider.getUriForFile(
+                this,
+                "$packageName.provider",
+                imageFile
+            )
+        } else {
+            //Uri es como un String en formato URI
+            Uri.fromFile(imageFile)
+        }
+
+        //30 b Nos pide un uri, vamos a crear esto
+        getContent.launch(uri)
+
+    }
+
+    private fun createImageFile(): File {
+        val filename = "superhero_image"
+        // Directorio donde vamos a guardar la imagen. Directorio PICTURES se utiliza por defecto para guardar imagenes
+        val fileDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        // Creamos nuestro file, nos pide el nombre, el formato y el directorio
+        val file = File.createTempFile(filename,".jpg", fileDirectory)
+        // El path absoluto se va a guardar en PicturePath
+        pictureFullPath = file.absolutePath
+        //Devolvemos el File
+        return file
     }
 
 
@@ -79,7 +129,9 @@ class MainActivity : AppCompatActivity() {
          */
         //18 - Pasamos solamente el superhero
         intent.putExtra(DetailActivity.HERO_KEY, heroe)
-        intent.putExtra(DetailActivity.BITMAP_KEY, heroImage.drawable.toBitmap())
+        //intent.putExtra(DetailActivity.IMAGE_PATH_KEY, heroImage.drawable.toBitmap())
+        // 31
+        intent.putExtra(DetailActivity.IMAGE_PATH_KEY, pictureFullPath)
         // 5 - Para utilizar el intent hemos de llamar a startActivity
         startActivity(intent)
     }
