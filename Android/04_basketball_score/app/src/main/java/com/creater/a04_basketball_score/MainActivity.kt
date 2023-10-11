@@ -3,6 +3,7 @@ package com.creater.a04_basketball_score
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.creater.a04_basketball_score.databinding.ActivityMainBinding
@@ -16,14 +17,35 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        // 5 - Una vez tenemos los Live Data hemos de OBSERVARLOS
+        // 1er argumento: Alguien que tenga un LifeCycle. La activity lo tiene
+        // 2ndo arg: Es un Observador: se nos genera un metodo lambda. Cuando se observe que el local Score cambia
+        // llamará a este lambda trayendo el valor nuevo
+        viewModel.localScore.observe(
+            this,
+            Observer {
+                localScoreValue ->
+                binding.localScoreText.text = localScoreValue.toString()
+            }
+        )
+        viewModel.visitorScore.observe(
+            this,
+            Observer {
+                    visitorScoreValue ->
+                    binding.visitorScoreText.text = visitorScoreValue.toString()
+            }
+        )
+        // Teniendo esto, cada vez que se edite local o visitante se van a actualizar los textos
+        // Ya no es necesario actualizarlos
+
         setupButtons()
     }
 
     private fun setupButtons() {
         binding.localMinusButton.setOnClickListener {
             viewModel.decreaseLocalScore()
-            binding.localScoreText.text = viewModel.localScore.toString()
 
         }
 
@@ -37,7 +59,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.visitorMinusButton.setOnClickListener {
             viewModel.decreaseVisitorScore()
-            binding.visitorScoreText.text = viewModel.visitorScore.toString()
 
         }
 
@@ -50,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.restartButton.setOnClickListener {
-            resetScores()
+            viewModel.resetScores()
         }
 
         binding.resultsButton.setOnClickListener {
@@ -58,25 +79,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun resetScores() {
-        viewModel.resetScores()
-        binding.visitorScoreText.text = viewModel.localScore.toString()
-        binding.localScoreText.text = viewModel.visitorScore.toString()
-    }
+
 
     private fun addPointsToScore(points: Int, isLocal: Boolean) {
         viewModel.addPointsToScore(points, isLocal)
-        if (isLocal) {
-            binding.localScoreText.text = viewModel.localScore.toString()
-        } else {
-            binding.visitorScoreText.text = viewModel.visitorScore.toString()
-        }
     }
 
     private fun startScoreActivity() {
         val intent = Intent(this, ScoreActivity::class.java)
-        intent.putExtra(ScoreActivity.LOCAL_SCORE_KEY, viewModel.localScore)
-        intent.putExtra(ScoreActivity.VISITOR_SCORE_KEY, viewModel.visitorScore)
+        intent.putExtra(ScoreActivity.LOCAL_SCORE_KEY, viewModel.localScore.value)
+        intent.putExtra(ScoreActivity.VISITOR_SCORE_KEY, viewModel.visitorScore.value)
         startActivity(intent)
     }
 }
