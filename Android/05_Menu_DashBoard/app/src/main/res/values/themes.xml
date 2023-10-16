@@ -6,4 +6,45 @@
     </style>
 
     <style name="Theme._05_Menu_DashBoard" parent="Base.Theme._05_Menu_DashBoard" />
+    <!-- ME PUEDO CREAR TEMAS PERSONALIZADOS-->
+    <style name="CalculadoraTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">@color/red_dark</item>
+        <item name="colorAccent">@color/red</item>
+    </style>
+    <style name="SuperHeroesTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimaryDark">@color/yellow_dark</item>
+        <item name="colorAccent">@color/yellow</item>
+    </style>
+    <style name="PerreteTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/lime</item>
+        <item name="colorPrimaryDark">@color/lime_dark</item>
+        <item name="colorAccent">@color/lime</item>
+    </style>
+    <style name="QuizzesTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/green_dark</item>
+        <item name="colorAccent">@color/green</item>
+    </style>
+    <style name="GaleriaTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blue_dark</item>
+        <item name="colorAccent">@color/blue</item>
+    </style>
+    <style name="MapasTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/darkblue</item>
+        <item name="colorPrimaryDark">@color/darkblue_dark</item>
+        <item name="colorAccent">@color/darkblue</item>
+    </style>
+    <style name="RestaurantesTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/darkviolet</item>
+        <item name="colorPrimaryDark">@color/darkviolet_dark</item>
+        <item name="colorAccent">@color/darkviolet</item>
+    </style>
+    <style name="SettingsTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/violet</item>
+        <item name="colorPrimaryDark">@color/violet_dark</item>
+        <item name="colorAccent">@color/violet</item>
+    </style>
 </resources>

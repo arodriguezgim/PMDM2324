@@ -13,6 +13,38 @@
         android:theme="@style/Theme._05_Menu_DashBoard"
         tools:targetApi="31">
         <activity
+            android:name=".ui.SettingsActivity"
+            android:theme="@style/SettingsTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.RestaurantesActivity"
+            android:theme="@style/RestaurantesTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MapasActivity"
+            android:theme="@style/MapasTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.GaleriaActivity"
+            android:theme="@style/GaleriaTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.QuizzesActivity"
+            android:theme="@style/QuizzesTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.EdadCaninaActivity"
+            android:theme="@style/PerreteTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SuperHeroesActivity"
+            android:theme="@style/SuperHeroesTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CalculadoraActivity"
+            android:theme="@style/CalculadoraTheme"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "org.iesch.alberto.a05_menu_dashboard"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "org.iesch.alberto.a05_menu_dashboard"
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures{
+        dataBinding = true
     }
 }
 
