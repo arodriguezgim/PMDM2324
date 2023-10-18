@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "org.iesch.alberto.a06_listview_splashscreen"
-        minSdk = 24
+        minSdk = 31
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
