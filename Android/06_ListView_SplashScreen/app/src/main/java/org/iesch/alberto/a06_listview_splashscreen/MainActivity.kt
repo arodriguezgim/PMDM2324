@@ -8,8 +8,14 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        Thread.sleep(3000)
+        //Le decimos que muestre el tema por defecto cuando se haya cargado la pantalla
+        setTheme(R.style.Theme__06_ListView_SplashScreen)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         // 1 - Creo un ArrayAdapter para trabajar con los elementos que van dentro des ListView
         val arrayAdapter: ArrayAdapter<*>

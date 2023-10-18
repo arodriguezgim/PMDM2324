@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme._06_ListView_SplashScreen" parent="Base.Theme._06_ListView_SplashScreen" />
+
+    <style name="SplashTheme" parent="Base.Theme._06_ListView_SplashScreen">
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
+
 </resources>
