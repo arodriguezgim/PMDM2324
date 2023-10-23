@@ -7,10 +7,10 @@
     tools:context=".MainActivity">
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/lvLista"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>
