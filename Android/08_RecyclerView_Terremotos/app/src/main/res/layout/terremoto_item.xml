@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="16dp"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/eq_magnitud_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:text="4.3" />
+    <data>
 
-    <TextView
-        android:id="@+id/eq_place_text"
-        android:layout_width="wrap_content"
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_toStartOf="@id/eq_arrow_image"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@id/eq_magnitud_text"
-        tools:text="80 km E NY" />
-    <ImageView
-        android:id="@+id/eq_arrow_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_chevron_right_24"
-        android:layout_alignParentEnd="true"/>
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/eq_magnitud_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="4.3" />
+
+        <TextView
+            android:id="@+id/eq_place_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@id/eq_arrow_image"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/eq_magnitud_text"
+            tools:text="80 km E NY" />
+
+        <ImageView
+            android:id="@+id/eq_arrow_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_chevron_right_24"
+            android:layout_alignParentEnd="true" />
 
 
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

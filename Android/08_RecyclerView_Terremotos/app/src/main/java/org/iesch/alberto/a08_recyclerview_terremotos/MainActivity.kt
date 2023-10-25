@@ -3,6 +3,7 @@ package org.iesch.alberto.a08_recyclerview_terremotos
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import org.iesch.alberto.a08_recyclerview_terremotos.adapter.TerremotoAdapter
 import org.iesch.alberto.a08_recyclerview_terremotos.databinding.ActivityMainBinding
 import org.iesch.alberto.a08_recyclerview_terremotos.model.Terremoto
 
@@ -25,6 +26,25 @@ class MainActivity : AppCompatActivity() {
         listaTerremotos.add(Terremoto("7","Lima",7.1, 273846152L, -1.3343, 40.98786754))
         listaTerremotos.add(Terremoto("8","Los Angeles",4.5, 273846152L, -1.3343, 40.98786754))
         // Adaptamos estalista al RecyclreView y para ello hemos de crear un Adaptador
-
+        // 12 - Asignamos el Adapter al RecyclerView
+        val adapter = TerremotoAdapter()
+        binding.eqRecycler.adapter = adapter
+        adapter.submitList(listaTerremotos)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
