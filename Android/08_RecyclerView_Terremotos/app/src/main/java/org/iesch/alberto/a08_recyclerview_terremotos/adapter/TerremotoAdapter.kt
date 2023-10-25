@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ExpandableListView.OnChildClickListener
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -12,8 +13,12 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import org.iesch.alberto.a08_recyclerview_terremotos.R
 import org.iesch.alberto.a08_recyclerview_terremotos.databinding.TerremotoItemBinding
 import org.iesch.alberto.a08_recyclerview_terremotos.model.Terremoto
+import android.widget.AdapterView.OnItemClickListener
 
 class TerremotoAdapter : ListAdapter<Terremoto, TerremotoAdapter.TerremotoViewHolder>(DiffCallback){
+
+    // 17 - el lambda define un metodo aqui, que lo mandan llamar desde otro lugar
+    lateinit var onItemClickListener:(Terremoto)->Unit
 
     companion object DiffCallback: DiffUtil.ItemCallback<Terremoto>(){
         override fun areItemsTheSame(oldItem: Terremoto, newItem: Terremoto): Boolean {
@@ -40,6 +45,12 @@ class TerremotoAdapter : ListAdapter<Terremoto, TerremotoAdapter.TerremotoViewHo
         fun bind(terremoto: Terremoto){
             binding.eqMagnitudText.text = terremoto.magnitud.toString()
             binding.eqPlaceText.text = terremoto.lugar.toString()
+
+            // 18
+            binding.root.setOnClickListener {
+                onItemClickListener(terremoto)
+            }
+
         }
     }
 
