@@ -8,5 +8,5 @@ import retrofit2.http.Url
 // por los cuales queremos acceder  a nuestra API
 interface APIService {
     @GET
-    fun getPerrosPorRaza(@Url url: String):Response<DogsResponse>
+    suspend fun getPerrosPorRaza(@Url url: String):Response<DogsResponse>
 }
