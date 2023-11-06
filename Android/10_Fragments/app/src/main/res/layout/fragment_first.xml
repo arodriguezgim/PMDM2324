@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#CDDC39"
+    tools:context=".FirstFragment">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:name="org.iesch.alberto.a10_fragments.FirstFragment"
+
+    <Button
+        android:id="@+id/btnFrament1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLICK!!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

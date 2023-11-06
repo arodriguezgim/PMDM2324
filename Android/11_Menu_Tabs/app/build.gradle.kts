@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "org.iesch.alberto.a10_fragments"
-    compileSdk = 34
+    namespace = "org.iesch.alberto.a11_menu_tabs"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = "org.iesch.alberto.a10_fragments"
+        applicationId = "org.iesch.alberto.a11_menu_tabs"
         minSdk = 27
         targetSdk = 33
         versionCode = 1
@@ -36,8 +36,6 @@ android {
 }
 
 dependencies {
-    // Libreria Fragments
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
