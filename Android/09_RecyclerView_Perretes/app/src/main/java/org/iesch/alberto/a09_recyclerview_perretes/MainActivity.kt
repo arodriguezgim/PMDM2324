@@ -31,9 +31,11 @@ class MainActivity : AppCompatActivity(), OnQueryTextListener {
     }
 
     private fun initRecyclerView() {
+        adapter = DogAdapter(dogImages)
         // antes de empezar aqui debemos crear un Adapter
         binding.rvDogs.layoutManager = LinearLayoutManager(this)
         binding.rvDogs.adapter = adapter
+
     }
 
     // Nos creamos una instancia de Retrofit
