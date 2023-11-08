@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "org.iesch.alberto.a12_corrutinas"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "org.iesch.alberto.a12_corrutinas"
