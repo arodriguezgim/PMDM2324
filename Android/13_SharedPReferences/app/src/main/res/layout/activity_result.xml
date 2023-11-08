@@ -4,36 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:id="@+id/container"
+    tools:context=".ResultActivity">
 
-    <EditText
-        android:id="@+id/etNombre"
+    <TextView
+        android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="text"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Alberto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/cbVip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="¿Eres VIP?"
-        app:layout_constraintStart_toStartOf="@+id/etNombre"
-        app:layout_constraintTop_toBottomOf="@+id/etNombre" />
-
     <Button
-        android:id="@+id/btnContinuar"
+        android:id="@+id/btnVolver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Continuar"
-        app:layout_constraintEnd_toEndOf="@+id/etNombre"
-        app:layout_constraintStart_toStartOf="@+id/etNombre"
-        app:layout_constraintTop_toBottomOf="@+id/cbVip" />
+        android:text="Cerra Sesión"
+        app:layout_constraintEnd_toEndOf="@+id/tvName"
+        app:layout_constraintStart_toStartOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
