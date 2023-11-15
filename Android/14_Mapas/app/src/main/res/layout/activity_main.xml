@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
     android:id="@+id/map"
     tools:context=".MainActivity"
+    map:uiZoomControls="true"
+    map:uiRotateGestures="false"
+    map:cameraTilt="30"
     android:name="com.google.android.gms.maps.SupportMapFragment" />
