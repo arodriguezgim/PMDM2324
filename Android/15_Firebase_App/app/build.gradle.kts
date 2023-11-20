@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "org.iesch.alberto.firebase"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "org.iesch.alberto.firebase"
-        minSdk = 27
+        minSdk = 31
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures {
+        dataBinding = true
     }
 }
 

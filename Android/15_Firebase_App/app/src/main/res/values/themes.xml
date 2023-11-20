@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme._15_Firebase_App" parent="Base.Theme._15_Firebase_App" />
+
+    <style name="SplashTheme" parent="Base.Theme._15_Firebase_App">
+        <item name="android:windowBackground">@color/firebase_azul</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/branding</item>
+    </style>
 </resources>
