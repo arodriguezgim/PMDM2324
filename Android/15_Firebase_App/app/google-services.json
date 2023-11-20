@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "265221737351",
+    "project_id": "fir-dam-ec77c",
+    "storage_bucket": "fir-dam-ec77c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265221737351:android:0990f9ec69257f8a412122",
+        "android_client_info": {
+          "package_name": "org.iesch.alberto.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv7H7OjeGe6GYUhJZljMdziujKyrqSzxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
