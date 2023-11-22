@@ -6,12 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import org.iesch.alberto.firebase.databinding.ActivityLoginBinding
 
 private lateinit var binding: ActivityLoginBinding
 class LoginActivity : AppCompatActivity() {
+
+    private val GOOGLE_SIGN_IN = 100
 
     override fun onStart() {
         super.onStart()
@@ -94,10 +100,50 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        // PULSAR EL BOTON DE LOGIN GOOGLE
+        binding.btnLoginGoogle.setOnClickListener {
+            // Configuracion
+            val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+            // Iniciamos la autenticacion
+            val googleSignInClient = GoogleSignIn.getClient(this, googleConf)
+
+            startActivityForResult(googleSignInClient.signInIntent, GOOGLE_SIGN_IN)
+        }
+
 
 
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ( requestCode == GOOGLE_SIGN_IN){
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+
+            try {
+                //Si to do ha ido bien tendremos la cuenta de google. Ahora nos autencamos en Firebase
+                val account = task.getResult(ApiException::class.java)
+                if ( account != null){
+                    val credetial = GoogleAuthProvider.getCredential(account.idToken, null)
+                    FirebaseAuth.getInstance().signInWithCredential(credetial)
+                        // Le añadoimos un listener para comprobar si se ha registrado o no el usuario
+                        .addOnCompleteListener {
+                            if (it.isSuccessful){
+                                // Ir a home
+                                showHome(account.email ?: "", ProviderType.GOOGLE)
+                            } else {
+                                showAlert()
+                            }
+                        }
+                }
+            } catch (e: ApiException){
+                showAlert()
+            }
+
+        }
+    }
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")

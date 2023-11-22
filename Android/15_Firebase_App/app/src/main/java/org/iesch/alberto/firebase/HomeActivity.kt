@@ -9,6 +9,7 @@ import org.iesch.alberto.firebase.databinding.ActivityHomeBinding
 
 enum class ProviderType {
     BASIC,
+    GOOGLE,
 }
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHomeBinding
