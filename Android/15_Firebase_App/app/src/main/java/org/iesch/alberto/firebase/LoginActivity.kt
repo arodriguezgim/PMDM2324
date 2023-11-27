@@ -2,22 +2,35 @@ package org.iesch.alberto.firebase
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.Firebase
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
+import com.google.firebase.remoteconfig.remoteConfig
+import com.google.firebase.remoteconfig.remoteConfigSettings
 import org.iesch.alberto.firebase.databinding.ActivityLoginBinding
 
 private lateinit var binding: ActivityLoginBinding
 class LoginActivity : AppCompatActivity() {
 
     private val GOOGLE_SIGN_IN = 100
+
+
+
 
     override fun onStart() {
         super.onStart()
@@ -37,11 +50,52 @@ class LoginActivity : AppCompatActivity() {
         val bundle = Bundle()
         bundle.putString("mensaje", "Integracion con Firebase completa")
         analytics.logEvent("InicioScreen",bundle )
+        ///Configuramos Remote Config
+        val configSettings : FirebaseRemoteConfigSettings = remoteConfigSettings {
+            // cada cuantos segundos se actualizan esos valores
+            minimumFetchIntervalInSeconds = 60
+        }
+        val firebaseConfig : FirebaseRemoteConfig = Firebase.remoteConfig
+        firebaseConfig.setConfigSettingsAsync(configSettings)
+        firebaseConfig.setDefaultsAsync(
+            mapOf(
+                "show_optional_button" to false,
+                "optional_button_text" to "Menú Especial"
+            )
+        )
+
+
+
+
+
+
+        // Notificacion
+        notification()
         //Autenticacion
         setup()
         // Sesion
         session()
+
     }
+
+    private fun notification() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            it.result?.let {
+                token ->
+                println("Este es el token del dispositivo: $token")
+            }
+        }
+
+        // Nos podemos suscribir a temas
+        FirebaseMessaging.getInstance().subscribeToTopic("DAM")
+        //Recuperasmos informacion de una notificacion recibida
+        val url = intent.getStringExtra("url")
+        url?.let {
+            println("Ha llegado informacion extra en un Push: $it")
+        }
+    }
+
+
 
     private fun session() {
         val prefs = getSharedPreferences("preferencias", Context.MODE_PRIVATE)
