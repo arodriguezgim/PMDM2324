@@ -1,6 +1,7 @@
 package org.iesch.alberto.firebase
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
@@ -70,6 +71,11 @@ class HomeActivity : AppCompatActivity() {
         }
         binding.btnEliminar.setOnClickListener {
             db.collection("usuarios").document(email.toString()).delete()
+        }
+        //1
+        binding.optionaButton.setOnClickListener {
+            val intent = Intent(this, UploadPhotoActivity::class.java)
+            startActivity(intent)
         }
     }
 

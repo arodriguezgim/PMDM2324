@@ -56,6 +56,8 @@ dependencies {
     implementation("com.google.firebase:firebase-config-ktx")
     // Cloud Firestore
     implementation("com.google.firebase:firebase-firestore-ktx:20.0.1")
+    // Firebase Storage
+    implementation("com.google.firebase:firebase-storage-ktx")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
