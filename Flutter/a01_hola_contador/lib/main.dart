@@ -1,4 +1,5 @@
-import 'package:a01_hola_contador/presentation/screens/counter_screen.dart';
+//import 'package:a01_hola_contador/presentation/screens/counter_screen.dart';
+import 'package:a01_hola_contador/presentation/screens/counter_screen_functions.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget{
 
       ),
       debugShowCheckedModeBanner: false,
-      home: CounterScreen()
+      home: CounterFuncitionsScreen()
     );
   }
 }

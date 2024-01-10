@@ -16,6 +16,7 @@ class Cuadrado{
   
   Cuadrado({ required double lado }) 
     : assert( lado > 0 , 'lado debe ser > 0' ), 
+    //assert( lado > 100),
       _lado = lado;
   
   double get area {
