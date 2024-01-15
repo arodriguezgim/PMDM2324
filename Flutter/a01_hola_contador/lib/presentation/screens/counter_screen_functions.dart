@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CounterFuncitionsScreen extends StatefulWidget {
-  CounterFuncitionsScreen({super.key});
+  const CounterFuncitionsScreen({super.key});
 
   @override
   State<CounterFuncitionsScreen> createState() => _CounterFuncitionsScreenState();
@@ -40,14 +40,26 @@ class _CounterFuncitionsScreenState extends State<CounterFuncitionsScreen> {
           ],
         )
       ),
-      floatingActionButton: const Column(
+      floatingActionButton:  Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-            BotonPersonalizado(icono: Icons.refresh_rounded,),
+            BotonPersonalizado(icono: Icons.refresh_rounded, onPressed: () {
+              contador = 0;
+              setState(() {});
+            },),
             const SizedBox(height: 10),
-            BotonPersonalizado(icono: Icons.exposure_minus_1_outlined,),
+            BotonPersonalizado(icono: Icons.exposure_minus_1_outlined, onPressed: () { 
+              setState(() {
+                if (contador==0) return;
+                contador--;
+              });
+            },),
             const SizedBox(height: 10),
-            BotonPersonalizado(icono: Icons.plus_one,),
+            BotonPersonalizado(icono: Icons.plus_one, onPressed: () {
+              setState(() {
+                contador++;
+              });
+            },),
         ],
       )
     );
@@ -56,18 +68,18 @@ class _CounterFuncitionsScreenState extends State<CounterFuncitionsScreen> {
 
 class BotonPersonalizado extends StatelessWidget {
   final IconData icono;
+  final VoidCallback onPressed;
   const BotonPersonalizado({
     super.key, 
-    required this.icono,
+    required this.icono, 
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
       child: Icon( icono ),
-      onPressed: (){
-        
-      }
+      onPressed: onPressed
     );
   }
 }
