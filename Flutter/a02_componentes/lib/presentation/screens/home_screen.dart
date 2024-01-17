@@ -1,3 +1,4 @@
+import 'package:a02_componentes/presentation/screens/listview1_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,8 +10,30 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Home Screen'),),
       body: Center(
-         child: FilledButton(onPressed: (){
-         }, child: const Text('Hola DAM'))
+              child: Column(
+                children: [
+                  FilledButton(
+                    child: const Text('Cambiar a ListView1'),
+                    onPressed: (){
+                       Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ListView1Screen(),
+                          ),
+                        );
+                      }, 
+                      
+                   ),
+
+
+                   FilledButton(
+                    child: const Text('Cambiar a ListView 2 por nombre'),
+                    onPressed: (){
+                       Navigator.pushNamed(context, 'lista2');
+                      },    
+                   ),
+                 ],
+             ),
+         
       ),
     );
   }

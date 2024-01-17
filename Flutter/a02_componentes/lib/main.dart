@@ -1,5 +1,7 @@
 import 'package:a02_componentes/config/theme/app_theme.dart';
+import 'package:a02_componentes/presentation/screens/home_screen.dart';
 import 'package:a02_componentes/presentation/screens/listview1_screen.dart';
+import 'package:a02_componentes/presentation/screens/listview2_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -14,8 +16,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: ListView1Screen(),
+      //home: HomeScreen(),
       theme: AppTheme( colorSeleccionado: 3 ).getTheme(),
+      //initialRoute: '/',
+      routes: {
+        '/':(context) => HomeScreen(),
+        'lista1':(context) => ListView1Screen(),
+        'lista2':(context) => ListView2Screen(),
+      },
     );
   }
 }
