@@ -16,13 +16,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       //home: HomeScreen(),
-      theme: AppTheme( colorSeleccionado: 0 ).getTheme(),
+      theme: AppTheme( colorSeleccionado: 6 ).getTheme(),
       //initialRoute: '/',
       routes: {
         '/':(context) => const HomeScreen(),
         'lista1':(context) => ListView1Screen(),
         'lista2':(context) => ListView2Screen(),
         'botones':(context) => ButtonsScreen(),
+        'card':(context) => CardScreen(),
       },
     );
   }

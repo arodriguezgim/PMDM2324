@@ -79,6 +79,7 @@ class ButtonsScreen extends StatelessWidget {
                   ),
                   const Divider(),
                   // Nos creamos un Boton Personalizado.
+                  BotonPersonalizado()
 
 
 
@@ -99,5 +100,29 @@ class ButtonsScreen extends StatelessWidget {
           Navigator.pop(context);
         } ),
     );
+  }
+}
+
+class BotonPersonalizado extends StatelessWidget {
+  const BotonPersonalizado({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colores = Theme.of(context).colorScheme;
+    
+    
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Material(
+          color: colores.primary,
+          child: InkWell(
+            onTap: () {},
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('Material Button', style: TextStyle(color: Colors.white),),
+              ),
+          ),
+              ),
+        );
   }
 }
