@@ -1,4 +1,3 @@
-import 'package:a02_componentes/presentation/screens/listview1_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -7,34 +6,41 @@ class HomeScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+
+    final colores = Theme.of(context).colorScheme;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Screen'),),
-      body: Center(
-              child: Column(
-                children: [
-                  FilledButton(
-                    child: const Text('Cambiar a ListView1'),
-                    onPressed: (){
-                       Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => ListView1Screen(),
-                          ),
-                        );
-                      }, 
-                      
-                   ),
-
-
-                   FilledButton(
-                    child: const Text('Cambiar a ListView 2 por nombre'),
-                    onPressed: (){
-                       Navigator.pushNamed(context, 'lista2');
-                      },    
-                   ),
-                 ],
-             ),
-         
+      appBar: AppBar(
+        title: const Text('Flutter Componentes'),
       ),
+      body: ListView(
+        children: [
+          ListTile(
+            title: const Text('Botones'),
+            subtitle: const Text('Ir a la página de Botones'),
+            leading: Icon( Icons.radio_button_on, color: colores.primary, ),
+            trailing: Icon( Icons.arrow_forward_ios_outlined, color: colores.primary,),
+            onTap: () => Navigator.pushNamed(context, 'botones'),
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Lista tipo 1'),
+            subtitle: const Text('Ir a la página de Lista tipo 1'),
+            leading:  Icon( Icons.account_balance, color: colores.primary,),
+            trailing:  Icon( Icons.arrow_forward_ios_outlined, color: colores.primary,),
+            onTap: () => Navigator.pushNamed(context, 'lista1'),
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Lista tipo 2'),
+            subtitle: const Text('Ir a la página de Lista tipo 2'),
+            leading:  Icon( Icons.join_full, color: colores.primary,),
+            trailing: Icon( Icons.arrow_forward_ios_outlined, color: colores.primary,),
+            onTap: () => Navigator.pushNamed(context, 'lista2'),
+          ),
+          const Divider(),
+        ],
+      )
     );
   }
 }
