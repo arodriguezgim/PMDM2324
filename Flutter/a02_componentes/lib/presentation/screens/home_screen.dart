@@ -47,6 +47,14 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, 'card'),
           ),
           const Divider(),
+          ListTile(
+            title: const Text('Otras Tarjetas'),
+            subtitle: const Text('Otras tarjetas personalizas'),
+            leading:  Icon( Icons.car_rental, color: colores.primary,),
+            trailing: Icon( Icons.arrow_forward_ios_outlined, color: colores.primary,),
+            onTap: () => Navigator.pushNamed(context, 'card2'),
+          ),
+          const Divider(),
         ],
       )
     );

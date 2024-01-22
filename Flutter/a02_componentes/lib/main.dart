@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         'lista2':(context) => ListView2Screen(),
         'botones':(context) => ButtonsScreen(),
         'card':(context) => CardScreen(),
+        'card2':(context) => Card2Screen(),
       },
     );
   }
