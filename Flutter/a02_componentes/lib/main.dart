@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       //home: HomeScreen(),
-      theme: AppTheme( colorSeleccionado: 6 ).getTheme(),
+      theme: AppTheme( colorSeleccionado: 2 ).getTheme(),
       //initialRoute: '/',
       routes: {
         '/':(context) => const HomeScreen(),

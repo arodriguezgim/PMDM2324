@@ -1,4 +1,6 @@
+import 'package:a02_componentes/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+
 
 class Card2Screen extends StatelessWidget {
    
@@ -6,10 +8,17 @@ class Card2Screen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-         child: Text('Card2Screen'),
-      ),
+    return Scaffold(
+      appBar: AppBar( title: const Text('Otras tarjetas'),),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        children: const [
+          CardPersonalizada1(),
+
+
+        ],
+      )
     );
   }
 }
+

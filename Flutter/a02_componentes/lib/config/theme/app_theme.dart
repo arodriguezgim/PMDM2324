@@ -33,6 +33,7 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       centerTitle: true,
     ),
+    
     brightness: isDarkMode ? Brightness.dark : Brightness.light,
   );
 }
