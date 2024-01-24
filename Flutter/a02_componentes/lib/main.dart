@@ -27,6 +27,8 @@ class MyApp extends StatelessWidget {
         'card2':(context) => Card2Screen(),
         'slider':(context) => SliderScreen(),
         'animatedcontainers':(context) => AnimatedContainerScreen(),
+        'alertas':(context) => AlertasScreen(),
+        'formulario':(context) => FormularioScreen(),
       },
     );
   }

@@ -71,6 +71,22 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, 'animatedcontainers'),
           ),
           const Divider(),
+          ListTile(
+            title: const Text('Alertas y Snackbars'),
+            subtitle: const Text('Pagina de alertas y Snackbars'),
+            leading:  Icon( Icons.dangerous_outlined, color: colores.primary,),
+            trailing: Icon( Icons.arrow_forward_ios_outlined, color: colores.primary,),
+            onTap: () => Navigator.pushNamed(context, 'alertas'),
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Formulario de registro'),
+            subtitle: const Text('Mira las ultimas tendencias en Formularios'),
+            leading:  Icon( Icons.verified_user_outlined, color: colores.primary,),
+            trailing: Icon( Icons.arrow_forward_ios_outlined, color: colores.primary,),
+            onTap: () => Navigator.pushNamed(context, 'formulario'),
+          ),
+          const Divider(),
         ],
       )
     );
