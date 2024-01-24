@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
 
-  static const Color miColor = Color.fromARGB(255, 4, 224, 236);
+  static const Color miColor = Color.fromARGB(255, 101, 116, 181);
 
   static const colorList = [
     miColor,

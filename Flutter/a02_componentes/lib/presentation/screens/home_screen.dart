@@ -55,6 +55,22 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, 'card2'),
           ),
           const Divider(),
+          ListTile(
+            title: const Text('Slider y Checkboxes'),
+            subtitle: const Text('Sliders, Checkboxes y Switchs'),
+            leading:  Icon( Icons.bathroom, color: colores.primary,),
+            trailing: Icon( Icons.arrow_forward_ios_outlined, color: colores.primary,),
+            onTap: () => Navigator.pushNamed(context, 'slider'),
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Animated Containers'),
+            subtitle: const Text('Disfruta con los contenedores animados'),
+            leading:  Icon( Icons.gif_box, color: colores.primary,),
+            trailing: Icon( Icons.arrow_forward_ios_outlined, color: colores.primary,),
+            onTap: () => Navigator.pushNamed(context, 'animatedcontainers'),
+          ),
+          const Divider(),
         ],
       )
     );

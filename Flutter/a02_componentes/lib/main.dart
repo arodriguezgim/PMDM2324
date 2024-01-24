@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       //home: HomeScreen(),
-      theme: AppTheme( colorSeleccionado: 2 ).getTheme(),
+      theme: AppTheme( colorSeleccionado: 1 ).getTheme(),
       //initialRoute: '/',
       routes: {
         '/':(context) => const HomeScreen(),
@@ -25,6 +25,8 @@ class MyApp extends StatelessWidget {
         'botones':(context) => ButtonsScreen(),
         'card':(context) => CardScreen(),
         'card2':(context) => Card2Screen(),
+        'slider':(context) => SliderScreen(),
+        'animatedcontainers':(context) => AnimatedContainerScreen(),
       },
     );
   }
