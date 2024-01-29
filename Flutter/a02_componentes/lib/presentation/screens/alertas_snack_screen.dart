@@ -84,15 +84,27 @@ class AlertasScreen extends StatelessWidget {
               child: const Text('Salir', style: TextStyle(color: Colors.redAccent),),
               ),
           ],
-        );
-        
+        ); 
       },
-      );
-      
+      );    
   }
 }
 
 void _mostrarSnackBar(BuildContext context ) {
 
-  //ScaffoldMessenger.of(context)
+  ScaffoldMessenger.of(context).clearSnackBars();
+
+  final SnackBar snackBar =  SnackBar(
+    content: const Text('Queda un mes de clase chavales'),
+    action: SnackBarAction(
+      textColor: Colors.white,
+      label: 'Ok!', 
+      onPressed: () {
+      
+    },),
+    duration: const Duration(seconds: 2),
+    backgroundColor: Colors.indigo,
+    );
+
+  ScaffoldMessenger.of(context).showSnackBar( snackBar );
 }
