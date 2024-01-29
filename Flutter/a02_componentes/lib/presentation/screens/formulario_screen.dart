@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
-class FormularioScreen extends StatefulWidget {
+class FormularioScreen extends StatelessWidget {
    
   const FormularioScreen({Key? key}) : super(key: key);
-
-  @override
-  State<FormularioScreen> createState() => _FormularioScreenState();
-}
-
-class _FormularioScreenState extends State<FormularioScreen> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +18,6 @@ class _FormularioScreenState extends State<FormularioScreen> {
                 autofocus: true,
                 //initialValue: 'Alberto',
                 textCapitalization: TextCapitalization.words,
-                onChanged: (value) {
-                  setState(() {
-                    print( value );
-                  });
-                  
-                },
               ),
 
             ],
