@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:menu_dash/config/theme/app_theme.dart';
+import 'package:menu_dash/presentation/provider/counter_provider.dart';
 import 'package:menu_dash/presentation/screens.dart';
+import 'package:provider/provider.dart';
 
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    //Aqui es donde ponemos el Provider
+    ChangeNotifierProvider(
+      create: (_) => CounterProvider(),
+      child: const MainApp(),
+      )
+  );
 }
 
 class MainApp extends StatelessWidget {
