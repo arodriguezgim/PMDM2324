@@ -16,9 +16,9 @@ class MenuScreen extends StatelessWidget {
       ),
       OpcionMenuItem(
         color: AppTheme.colorList[1],
-        icono: Icons.ac_unit,
-        texto: 'Opción 2',
-        screenName: 'basket',
+        icono: Icons.stadium,
+        texto: 'Provider',
+        screenName: 'provider',
       ),
       OpcionMenuItem(
         color: AppTheme.colorList[2],
