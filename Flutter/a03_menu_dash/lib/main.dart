@@ -8,10 +8,12 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(
     //Aqui es donde ponemos el Provider
-    ChangeNotifierProvider(
-      create: (_) => CounterProvider(),
-      child: const MainApp(),
-      )
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CounterProvider()),
+      ] ,
+      child: const MainApp(),       
+    ),
   );
 }
 
