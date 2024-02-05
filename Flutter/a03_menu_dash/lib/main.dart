@@ -30,7 +30,7 @@ class MainApp extends StatelessWidget {
         'componentes': (context) => const ComponentesScreen(),
         'basket': (context) => const BasketScreen(),
         'provider': (context) =>  ProviderScreen(),
-        'pantalla4': (context) => const ComponentesScreen(),
+        'qr': (context) => const QRScreen(),
         'pantalla5': (context) => const ComponentesScreen(),
         'pantalla6': (context) => const ComponentesScreen(),
         'pantalla7': (context) => const ComponentesScreen(),

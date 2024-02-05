@@ -28,9 +28,9 @@ class MenuScreen extends StatelessWidget {
       ),
       OpcionMenuItem(
         color: AppTheme.colorList[3],
-        icono: Icons.ac_unit,
-        texto: 'Opción 4',
-        screenName: 'pantalla4',
+        icono: Icons.qr_code,
+        texto: 'Lector QR',
+        screenName: 'qr',
       ),
       OpcionMenuItem(
         color: AppTheme.colorList[4],
