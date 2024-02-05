@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:menu_dash/presentation/screens/sub_screens/qr_pages/mapa_widget.dart';
 
 class QRScreen extends StatelessWidget {
    
@@ -6,13 +7,14 @@ class QRScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+
+    final _currentIndex = 0;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Historial'),),
-      body: const Center(
-         child: Text('QRScreen'),
-      ),
+      body: MapaWidget(),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: _currentIndex,
         elevation: 0,
         items: const [
           BottomNavigationBarItem(
