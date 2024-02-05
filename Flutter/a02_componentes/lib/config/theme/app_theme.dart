@@ -28,7 +28,7 @@ class AppTheme {
    assert( colorSeleccionado <= colorList.length, 'El color ha de estar comprendido en la lista');
 
   ThemeData getTheme() => ThemeData(
-    useMaterial3: false,
+    useMaterial3: true,
     colorSchemeSeed: colorList[ colorSeleccionado ],
     appBarTheme: const AppBarTheme(
       centerTitle: true,
