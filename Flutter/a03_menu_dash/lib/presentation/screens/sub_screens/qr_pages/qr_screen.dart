@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:menu_dash/presentation/provider/qr_provider.dart';
+import 'package:menu_dash/presentation/provider/scan_provider.dart';
 import 'package:menu_dash/presentation/screens/sub_screens/qr_pages/direcciones_widget.dart';
 import 'package:menu_dash/presentation/screens/sub_screens/qr_pages/mapa_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class QRScreen extends StatelessWidget {
    
@@ -31,9 +34,32 @@ class QRScreen extends StatelessWidget {
             label: 'Direcciones'),
         ]
         ),
-      floatingActionButton: const FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
           elevation: 0,
-          onPressed: null,
+          onPressed: () async {
+
+            try {
+              // Abrimos el Bar Code Scanner
+              String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+                                                      '#3D8BEF', 
+                                                      'Cancelar', 
+                                                      false, 
+                                                      ScanMode.QR);
+              
+
+              print(barcodeScanRes);
+              if ( barcodeScanRes != "-1") {
+                // Añadimos el QR a la lista de Direcciones del Provider
+                final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
+                scanListProvider.nuevoScan(barcodeScanRes);
+              }
+              
+
+            } on PlatformException catch (e) {
+              throw Exception(e);
+            }
+            
+          },
           child: Icon(Icons.filter_center_focus),
           ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

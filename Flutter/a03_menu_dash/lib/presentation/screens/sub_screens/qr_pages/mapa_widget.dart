@@ -5,8 +5,14 @@ class MapaWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Mapa Widget'),
-     );
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: ( _ , index) => ListTile(
+        leading: Icon( Icons.map, color: Theme.of(context).primaryColor,),
+        title: Text('MApa Widget'),
+        subtitle: Text('$index'),
+        trailing: Icon( Icons.keyboard_arrow_right_outlined, color: Theme.of(context).primaryColor,),
+      ),
+      );
   }
 }
