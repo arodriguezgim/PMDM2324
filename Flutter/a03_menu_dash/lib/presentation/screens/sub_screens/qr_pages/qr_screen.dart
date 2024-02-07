@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:menu_dash/presentation/provider/qr_provider.dart';
+import 'package:menu_dash/presentation/screens/sub_screens/qr_pages/direcciones_widget.dart';
 import 'package:menu_dash/presentation/screens/sub_screens/qr_pages/mapa_widget.dart';
+import 'package:provider/provider.dart';
 
 class QRScreen extends StatelessWidget {
    
@@ -8,13 +11,16 @@ class QRScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final _currentIndex = 0;
+    //final currentIndex = 1;
+    final menuOptProvider = Provider.of<QRProvider>(context);
+    final currentIndex = menuOptProvider.selectedMenuOpt;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Historial'),),
-      body: MapaWidget(),
+      body: _HomeWidget(),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
+        onTap: ( i ) => menuOptProvider.selectedMenuOpt = i,
+        currentIndex: currentIndex,
         elevation: 0,
         items: const [
           BottomNavigationBarItem(
@@ -32,5 +38,26 @@ class QRScreen extends StatelessWidget {
           ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
+  }
+}
+
+
+class _HomeWidget extends StatelessWidget {
+  const _HomeWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    final menuOptProvider = Provider.of<QRProvider>(context);
+    final _currentIndex = menuOptProvider.selectedMenuOpt;
+
+    switch (_currentIndex) {
+      case 0:
+        return MapaWidget();
+      case 1:
+        return DireccionesWidget();
+      default:
+        return MapaWidget();
+    }
   }
 }

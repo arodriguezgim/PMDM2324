@@ -8,7 +8,7 @@ class CounterProvider extends ChangeNotifier {
 
   void increment(){
     _contador++;
-    //notifyListeners();
+    notifyListeners();
   }
 
   void resetear(){
