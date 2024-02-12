@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menu_dash/config/theme/app_theme.dart';
 import 'package:menu_dash/presentation/provider/counter_provider.dart';
+import 'package:menu_dash/presentation/provider/pets_provider.dart';
 import 'package:menu_dash/presentation/provider/qr_provider.dart';
 import 'package:menu_dash/presentation/provider/scan_provider.dart';
 import 'package:menu_dash/presentation/screens.dart';
@@ -15,6 +16,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => CounterProvider()),
         ChangeNotifierProvider(create: (_) => QRProvider()),
         ChangeNotifierProvider(create: (_) => ScanListProvider()),
+        ChangeNotifierProvider(create: (_) => PetsProvider()),
       ] ,
       child: const MainApp(),       
     ),
@@ -35,8 +37,8 @@ class MainApp extends StatelessWidget {
         'basket': (context) => const BasketScreen(),
         'provider': (context) =>  ProviderScreen(),
         'qr': (context) => const QRScreen(),
-        'pantalla5': (context) => const ComponentesScreen(),
-        'pantalla6': (context) => const ComponentesScreen(),
+        'perretes': (context) => const PetsScreen(),
+        'ubicacion': (context) => const UbicacionScreen(),
         'pantalla7': (context) => const ComponentesScreen(),
         'pantalla8': (context) => const ComponentesScreen(),
       },

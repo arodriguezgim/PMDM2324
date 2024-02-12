@@ -34,15 +34,15 @@ class MenuScreen extends StatelessWidget {
       ),
       OpcionMenuItem(
         color: AppTheme.colorList[4],
-        icono: Icons.ac_unit,
-        texto: 'Opción 5',
-        screenName: 'pantalla5',
+        icono: Icons.pets,
+        texto: 'API Perretes',
+        screenName: 'perretes',
       ),
       OpcionMenuItem(
         color: AppTheme.colorList[5],
-        icono: Icons.ac_unit,
-        texto: 'Opción 6',
-        screenName: 'pantalla6',
+        icono: Icons.pin_drop,
+        texto: 'Geolocalización',
+        screenName: 'ubicacion',
       ),
       OpcionMenuItem(
         color: AppTheme.colorList[6],
