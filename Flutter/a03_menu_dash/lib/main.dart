@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menu_dash/config/theme/app_theme.dart';
 import 'package:menu_dash/presentation/provider/counter_provider.dart';
+import 'package:menu_dash/presentation/provider/location_provider.dart';
 import 'package:menu_dash/presentation/provider/pets_provider.dart';
 import 'package:menu_dash/presentation/provider/qr_provider.dart';
 import 'package:menu_dash/presentation/provider/scan_provider.dart';
@@ -17,6 +18,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => QRProvider()),
         ChangeNotifierProvider(create: (_) => ScanListProvider()),
         ChangeNotifierProvider(create: (_) => PetsProvider()),
+        ChangeNotifierProvider(create: (_) => LocationProvider()),
       ] ,
       child: const MainApp(),       
     ),
