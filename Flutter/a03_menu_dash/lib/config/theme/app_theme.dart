@@ -23,10 +23,11 @@ class AppTheme {
             'El color ha de estar comprendido en la lista');
 
   ThemeData getTheme() => ThemeData(
-        useMaterial3: false,
+        useMaterial3: true,
         colorSchemeSeed: colorList[colorSeleccionado],
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           centerTitle: true,
+          backgroundColor: Colors.blueAccent.shade200,
         ),
         brightness: isDarkMode ? Brightness.dark : Brightness.light,
       );
