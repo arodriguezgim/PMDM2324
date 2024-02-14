@@ -35,7 +35,7 @@ class UbicacionScreen extends StatelessWidget {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          Provider.of<LocationProvider>(context, listen: false).determinarPosition();
+          Provider.of<LocationProvider>(context, listen: false).startLocationUpdates();
         },
         child: const Icon(Icons.location_on),
         ),

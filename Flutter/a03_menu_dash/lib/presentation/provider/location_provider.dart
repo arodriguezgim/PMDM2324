@@ -51,4 +51,18 @@ class LocationProvider extends ChangeNotifier {
 
     return;
   }
+
+  void startLocationUpdates() {
+    Geolocator.getPositionStream(
+      locationSettings: LocationSettings(
+        distanceFilter: 10,
+        accuracy: LocationAccuracy.high
+      ),
+    ).listen((Position position) { 
+      _currentPosition = position;
+      notifyListeners();
+    });
+  }
+
+
 }
