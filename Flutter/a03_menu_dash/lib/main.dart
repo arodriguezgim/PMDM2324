@@ -41,7 +41,7 @@ class MainApp extends StatelessWidget {
         'qr': (context) => const QRScreen(),
         'perretes': (context) => const PetsScreen(),
         'ubicacion': (context) => const UbicacionScreen(),
-        'pantalla7': (context) => const ComponentesScreen(),
+        'mapa': (context) => const MapaScreen(),
         'pantalla8': (context) => const ComponentesScreen(),
       },
     );

@@ -1,3 +1,5 @@
+export 'package:menu_dash/presentation/screens/sub_screens/mapa_screen.dart';
+
 export 'package:menu_dash/presentation/screens/sub_screens/pets_pages/pets_screen.dart';
 export 'package:menu_dash/presentation/screens/sub_screens/ubicacion_screen.dart';
 export 'package:menu_dash/presentation/screens/sub_screens/qr_pages/qr_screen.dart';

@@ -46,9 +46,9 @@ class MenuScreen extends StatelessWidget {
       ),
       OpcionMenuItem(
         color: AppTheme.colorList[6],
-        icono: Icons.ac_unit,
-        texto: 'Opción 7',
-        screenName: 'pantalla7',
+        icono: Icons.map,
+        texto: 'Mapas Mapbox',
+        screenName: 'mapa',
       ),
       OpcionMenuItem(
         color: AppTheme.colorList[7],
