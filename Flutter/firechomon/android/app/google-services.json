@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "167354032811",
+    "project_id": "flutterargfirebase",
+    "storage_bucket": "flutterargfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167354032811:android:7c38d474083d82d30dcdee",
+        "android_client_info": {
+          "package_name": "com.albertorodriguez.firechomon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkAWIFVcLf5XlQDKtuYzlw4nZPKE7SXRk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
