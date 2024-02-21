@@ -1,4 +1,4 @@
-package com.example.menu_dash
+package org.iesch.firechomon
 
 import io.flutter.embedding.android.FlutterActivity
 
