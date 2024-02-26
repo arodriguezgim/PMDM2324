@@ -37,8 +37,16 @@ class LoginScreen extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               // Aqui nos logueamos en Firebase
+              authProvider.loginConEmailyPassword(emailController.text, passwordController.text);
             }, 
             child: Text('Logueo')
+            ),
+          ElevatedButton(
+            onPressed: () {
+              // Logueo con Google
+              authProvider.signInWithGoogle();
+            }, 
+            child: Text('Loguearse con Google')
             ),
           ElevatedButton(
             onPressed: () {

@@ -38,6 +38,9 @@ class RegisterScreen extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               // Aqui nos REGISTRAMOS en Firebase
+              authProvider.crearUsuarioConEmailyPassword(
+                emailController.text, passwordController.text);
+              Navigator.pop(context);
             }, 
             child: Text('Registro de Usuario')
             ),

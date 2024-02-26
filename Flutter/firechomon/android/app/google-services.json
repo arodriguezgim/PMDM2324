@@ -12,7 +12,20 @@
           "package_name": "com.albertorodriguez.firechomon"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "167354032811-jr18va8lmdchto46vt6pmermmjs5cpot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.albertorodriguez.firechomon",
+            "certificate_hash": "d0c6fc47494a1b05263ceda512847bce35ff3e47"
+          }
+        },
+        {
+          "client_id": "167354032811-bjs5hm6mljl58hrmm8aocmh2iusced74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCkAWIFVcLf5XlQDKtuYzlw4nZPKE7SXRk"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167354032811-bjs5hm6mljl58hrmm8aocmh2iusced74.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "167354032811-4l01fvp4eoadocp792npj0edl3egcdoc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.albertorodriguez.firechomon"
+              }
+            }
+          ]
         }
       }
     }
