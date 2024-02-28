@@ -1,4 +1,7 @@
 import 'package:firechomon/provider/auth_provider.dart';
+import 'package:firechomon/provider/peliculas_provider.dart';
+import 'package:firechomon/screens/add_pelicula_screen.dart';
+import 'package:firechomon/screens/home_screen.dart';
 import 'package:firechomon/screens/login_screen.dart';
 import 'package:firechomon/screens/register_screen.dart';
 import 'package:firechomon/wrapper.dart';
@@ -25,6 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<AuthProvider>(create: (context) => AuthProvider(),),
+        ChangeNotifierProvider<PeliculasProvider>(create: (context) => PeliculasProvider(),),
       ],
       child: MaterialApp(
         title: 'Material App',
@@ -33,6 +37,8 @@ class MyApp extends StatelessWidget {
           '/' :(context) => Wrapper(),
           '/login' :(context) => LoginScreen(),
           '/register':(context) => RegisterScreen(),
+          '/home':(context) => HomeScreen(),
+          '/addPelicula':(context) => AddPeliculaScreen(),
         },
       ),
     );
