@@ -3,6 +3,7 @@ import 'package:firechomon/provider/auth_provider.dart';
 import 'package:firechomon/screens/home_screen.dart';
 import 'package:firechomon/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 
 class Wrapper extends StatelessWidget {
@@ -13,6 +14,7 @@ class Wrapper extends StatelessWidget {
 
     final authProvider = Provider.of<AuthProvider>(context);
 
+    FlutterNativeSplash.remove();
 
     return StreamBuilder<Usuario?>(
       stream: authProvider.user,
