@@ -9,7 +9,7 @@ Pelicula peliculaFromJson(String str) => Pelicula.fromJson(json.decode(str));
 String peliculaToJson(Pelicula data) => json.encode(data.toJson());
 
 class Pelicula {
-    final int? id;
+    final String? id;
     final String? titulo;
     final int? anio;
     final String? director;

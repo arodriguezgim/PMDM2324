@@ -35,6 +35,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.3.10
+  flutter_slidable: ^3.0.1
   google_sign_in: ^6.2.1
   provider: ^6.1.1
 

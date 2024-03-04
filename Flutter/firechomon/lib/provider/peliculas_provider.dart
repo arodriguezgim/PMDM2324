@@ -21,11 +21,21 @@ class PeliculasProvider  extends ChangeNotifier {
 
   Future<void> anadirPelicula(Pelicula pelicula) async {
     try {
-      await FirebaseFirestore.instance.collection('peliculas').add(pelicula.toJson());
+
+      DocumentReference documentReference = await FirebaseFirestore.instance.collection('peliculas').add(pelicula.toJson());
+      String id = documentReference.id;
+      //Actualizo la id de la pelicula
+      await documentReference.update({'id': id});
+      
       notifyListeners();
     } catch (e) {
       print(e);
     }
+  }
+
+  void eliminarPelicula(Pelicula pelicula ){
+    FirebaseFirestore.instance.collection('peliculas').doc(pelicula.id).delete();
+    notifyListeners();
   }
   
 }

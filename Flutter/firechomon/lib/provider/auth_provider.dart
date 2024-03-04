@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firechomon/models/user_model.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class AuthProvider extends ChangeNotifier {
 
   // Logueo con GOOGLE
 
-  Future<UserCredential> signInWithGoogle() async {
+  Future<void> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -67,7 +68,16 @@ class AuthProvider extends ChangeNotifier {
     );
 
     // Once signed in, return the UserCredential
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    await FirebaseAuth.instance.signInWithCredential(credential);
+
+    FirebaseFirestore.instance.collection('usuarios').doc(googleUser!.email).set(
+      {
+        "email" : googleUser.email,
+        "uid"   : googleUser.id,
+        "nombre": googleUser.displayName,
+        "login" : DateTime.now()
+      }
+    );
   }
 
   // Funcion de sign out()
