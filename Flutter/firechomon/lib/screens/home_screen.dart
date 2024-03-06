@@ -27,7 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton.filledTonal(
               onPressed: () => authProvider.signOut(),
-              icon: const Icon(Icons.logout_outlined))
+              icon: const Icon(Icons.logout_outlined)),
+          IconButton.filledTonal(
+              onPressed: () {
+                Navigator.pushNamed(context, '/firestorage');
+              },
+              icon: const Icon(Icons.photo_camera)),
         ],
       ),
       body: FutureBuilder(

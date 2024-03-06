@@ -1,6 +1,7 @@
 import 'package:firechomon/provider/auth_provider.dart';
 import 'package:firechomon/provider/peliculas_provider.dart';
 import 'package:firechomon/screens/add_pelicula_screen.dart';
+import 'package:firechomon/screens/firestore_screen.dart';
 import 'package:firechomon/screens/home_screen.dart';
 import 'package:firechomon/screens/login_screen.dart';
 import 'package:firechomon/screens/register_screen.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
           '/register':(context) => RegisterScreen(),
           '/home':(context) => HomeScreen(),
           '/addPelicula':(context) => AddPeliculaScreen(),
-        },
+          '/firestorage':(context) => FirestoreScreen(),        },
       ),
     );
   }
